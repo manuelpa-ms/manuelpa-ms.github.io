@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manuel — Indie Developer</title>
-    <meta name="description" content="Indie developer building apps that solve real problems. Creator of Healthien, Tiny Steps, NameDrill, and more.">
+    <meta name="description" content="Indie developer building apps that solve real problems. Creator of Healthien, Tiny Steps, Journia, and more.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -24,7 +24,7 @@
         }
 
         .container {
-            max-width: 640px;
+            max-width: 680px;
             margin: 0 auto;
             padding: 4rem 1.5rem;
         }
@@ -70,75 +70,93 @@
         .app-grid {
             display: flex;
             flex-direction: column;
-            gap: 0.75rem;
+            gap: 1rem;
         }
 
         .app-card {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             gap: 1rem;
-            padding: 1rem;
+            padding: 1.25rem;
             background: #141414;
             border: 1px solid #222;
             border-radius: 12px;
-            text-decoration: none;
-            color: inherit;
-            transition: all 0.2s ease;
-        }
-
-        .app-card:hover {
-            background: #1a1a1a;
-            border-color: #333;
-            transform: translateY(-1px);
         }
 
         .app-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 10px;
+            width: 64px;
+            height: 64px;
+            border-radius: 14px;
             flex-shrink: 0;
             background: #222;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
         }
 
-        .app-info {
+        .app-content {
             flex: 1;
             min-width: 0;
         }
 
         .app-name {
-            font-weight: 500;
+            font-weight: 600;
+            font-size: 1.1rem;
             color: #fff;
-            margin-bottom: 0.125rem;
+            margin-bottom: 0.25rem;
         }
 
         .app-desc {
             font-size: 0.875rem;
             color: #888;
+            margin-bottom: 0.75rem;
         }
 
-        .app-badge {
-            font-size: 0.625rem;
+        .app-links {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .app-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.375rem;
+            padding: 0.375rem 0.75rem;
+            font-size: 0.75rem;
             font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            padding: 0.25rem 0.5rem;
-            border-radius: 4px;
-            background: #1a3a1a;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: all 0.2s;
+        }
+
+        .app-link.website {
+            background: #1a1a2e;
+            color: #818cf8;
+        }
+
+        .app-link.website:hover {
+            background: #1e1e3f;
+        }
+
+        .app-link.appstore {
+            background: #1a1a1a;
+            color: #fff;
+        }
+
+        .app-link.appstore:hover {
+            background: #252525;
+        }
+
+        .app-link.playstore {
+            background: #1a2e1a;
             color: #4ade80;
         }
 
-        .app-badge.coming {
-            background: #3a2a1a;
-            color: #fbbf24;
+        .app-link.playstore:hover {
+            background: #1e3f1e;
         }
 
-        .arrow {
-            color: #444;
-            font-size: 1.25rem;
+        .app-link svg {
+            width: 14px;
+            height: 14px;
         }
 
         .social-links {
@@ -180,8 +198,7 @@
 <body>
     <div class="container">
         <header class="header">
-            <!-- Add your photo: replace with actual image URL -->
-            <img src="https://avatars.githubusercontent.com/u/manuelpa-ms" alt="Manuel" class="avatar" onerror="this.style.display='none'">
+            <img src="https://avatars.githubusercontent.com/manuelpa-ms" alt="Manuel" class="avatar" onerror="this.style.display='none'">
             <h1>Manuel</h1>
             <p class="tagline">Indie developer building apps that don't suck</p>
         </header>
@@ -189,63 +206,129 @@
         <section class="section">
             <h2 class="section-title">Apps</h2>
             <div class="app-grid">
-                <a href="https://healthien.app" class="app-card" target="_blank" rel="noopener">
-                    <div class="app-icon">🍎</div>
-                    <div class="app-info">
+
+                <!-- Healthien -->
+                <div class="app-card">
+                    <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/73/69/c0/7369c00b-d40d-7241-9a15-678e9fda92c5/healthien-0-0-1x_U007emarketing-0-8-0-85-220.png/128x128bb.jpg" alt="Healthien" class="app-icon">
+                    <div class="app-content">
                         <div class="app-name">Healthien</div>
-                        <div class="app-desc">AI calorie tracking — snap a photo, get nutrition</div>
+                        <div class="app-desc">AI calorie tracking — snap a photo, get instant nutrition data</div>
+                        <div class="app-links">
+                            <a href="https://healthien.app" class="app-link website" target="_blank" rel="noopener">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                                Website
+                            </a>
+                            <a href="https://apps.apple.com/us/app/healthien-ai-calorie-tracker/id6758266236" class="app-link appstore" target="_blank" rel="noopener">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                                App Store
+                            </a>
+                            <a href="https://play.google.com/store/apps/details?id=com.manuelpa.healthien" class="app-link playstore" target="_blank" rel="noopener">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/></svg>
+                                Play Store
+                            </a>
+                        </div>
                     </div>
-                    <span class="app-badge">Live</span>
-                    <span class="arrow">→</span>
-                </a>
+                </div>
 
-                <a href="#" class="app-card" target="_blank" rel="noopener">
-                    <div class="app-icon">✨</div>
-                    <div class="app-info">
+                <!-- Tiny Steps -->
+                <div class="app-card">
+                    <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/06/d5/0e/06d50e3f-a73d-f64c-4806-9fc74a785cc7/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/128x128bb.jpg" alt="Tiny Steps" class="app-icon">
+                    <div class="app-content">
                         <div class="app-name">Tiny Steps</div>
-                        <div class="app-desc">Habit tracker for ADHD brains — no guilt, just progress</div>
+                        <div class="app-desc">ADHD task helper — break overwhelming tasks into tiny, doable steps</div>
+                        <div class="app-links">
+                            <a href="https://tinysteps-6hy.pages.dev" class="app-link website" target="_blank" rel="noopener">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                                Website
+                            </a>
+                            <a href="https://apps.apple.com/us/app/tiny-steps-adhd-task-helper/id6758985538" class="app-link appstore" target="_blank" rel="noopener">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                                App Store
+                            </a>
+                        </div>
                     </div>
-                    <span class="app-badge">Live</span>
-                    <span class="arrow">→</span>
-                </a>
+                </div>
 
-                <a href="#" class="app-card" target="_blank" rel="noopener">
-                    <div class="app-icon">👤</div>
-                    <div class="app-info">
+                <!-- Journia -->
+                <div class="app-card">
+                    <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/67/cd/cc/67cdcca8-202e-7674-86c1-dae4725b8d85/appicon-0-0-1x_U007emarketing-0-8-0-85-220.png/128x128bb.jpg" alt="Journia" class="app-icon">
+                    <div class="app-content">
+                        <div class="app-name">Journia</div>
+                        <div class="app-desc">AI-powered journal & diary — reflect, grow, understand yourself</div>
+                        <div class="app-links">
+                            <a href="https://journia.me" class="app-link website" target="_blank" rel="noopener">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                                Website
+                            </a>
+                            <a href="https://apps.apple.com/us/app/journia-ai-journal-diary/id6742871431" class="app-link appstore" target="_blank" rel="noopener">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                                App Store
+                            </a>
+                            <a href="https://play.google.com/store/apps/details?id=com.papersoft.journia" class="app-link playstore" target="_blank" rel="noopener">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/></svg>
+                                Play Store
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- NameDrill -->
+                <div class="app-card">
+                    <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/b7/a5/41/b7a54152-6736-3bc6-44d2-7e90720dc2da/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/128x128bb.jpg" alt="NameDrill" class="app-icon">
+                    <div class="app-content">
                         <div class="app-name">NameDrill</div>
-                        <div class="app-desc">Remember names with spaced repetition</div>
+                        <div class="app-desc">Remember names and faces with spaced repetition</div>
+                        <div class="app-links">
+                            <a href="https://apps.apple.com/us/app/namedrill/id6758942102" class="app-link appstore" target="_blank" rel="noopener">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                                App Store
+                            </a>
+                        </div>
                     </div>
-                    <span class="app-badge">Live</span>
-                    <span class="arrow">→</span>
-                </a>
+                </div>
 
-                <a href="https://padeltracker.xyz" class="app-card" target="_blank" rel="noopener">
-                    <div class="app-icon">🎾</div>
-                    <div class="app-info">
+                <!-- PadelTracker -->
+                <div class="app-card">
+                    <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/60/cf/f7/60cff7fd-cc29-1e2d-5a3a-82b84e9fe03c/appicon-0-0-1x_U007emarketing-0-8-0-85-220.png/128x128bb.jpg" alt="PadelTracker" class="app-icon">
+                    <div class="app-content">
                         <div class="app-name">PadelTracker</div>
                         <div class="app-desc">Track your padel matches from your watch</div>
+                        <div class="app-links">
+                            <a href="https://padeltracker.xyz" class="app-link website" target="_blank" rel="noopener">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                                Website
+                            </a>
+                            <a href="https://apps.apple.com/us/app/padeltracker-match-stats/id6737911295" class="app-link appstore" target="_blank" rel="noopener">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                                App Store
+                            </a>
+                            <a href="https://play.google.com/store/apps/details?id=com.manuelpa.padeltracker" class="app-link playstore" target="_blank" rel="noopener">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/></svg>
+                                Play Store
+                            </a>
+                        </div>
                     </div>
-                    <span class="app-badge">Live</span>
-                    <span class="arrow">→</span>
-                </a>
-
-                <div class="app-card" style="cursor: default;">
-                    <div class="app-icon">🌙</div>
-                    <div class="app-info">
-                        <div class="app-name">Luneira</div>
-                        <div class="app-desc">Turn your dreams into AI-generated art</div>
-                    </div>
-                    <span class="app-badge coming">Soon</span>
                 </div>
 
-                <div class="app-card" style="cursor: default;">
-                    <div class="app-icon">🦊</div>
-                    <div class="app-info">
-                        <div class="app-name">FaunaDex</div>
-                        <div class="app-desc">Identify wildlife with your camera</div>
+                <!-- Shwazi -->
+                <div class="app-card">
+                    <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/33/0b/8d/330b8d03-3a26-5379-a6bb-f3da8a247455/AppIcon-0-0-1x_U007emarketing-0-8-0-0-85-220.png/128x128bb.jpg" alt="Shwazi" class="app-icon">
+                    <div class="app-content">
+                        <div class="app-name">Shwazi</div>
+                        <div class="app-desc">Finger chooser — settle decisions the fun way</div>
+                        <div class="app-links">
+                            <a href="https://apps.apple.com/us/app/shwazi-finger-chooser/id6748817272" class="app-link appstore" target="_blank" rel="noopener">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                                App Store
+                            </a>
+                            <a href="https://play.google.com/store/apps/details?id=com.manuelpa.shwazi" class="app-link playstore" target="_blank" rel="noopener">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/></svg>
+                                Play Store
+                            </a>
+                        </div>
                     </div>
-                    <span class="app-badge coming">Soon</span>
                 </div>
+
             </div>
         </section>
 
