@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manuel — Indie Developer</title>
+    <meta name="description" content="Indie developer building apps that solve real problems. Creator of Healthien, Tiny Steps, NameDrill, and more.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #0a0a0a;
+            color: #e5e5e5;
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 640px;
+            margin: 0 auto;
+            padding: 4rem 1.5rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .avatar {
+            width: 96px;
+            height: 96px;
+            border-radius: 50%;
+            margin-bottom: 1.5rem;
+            border: 2px solid #333;
+        }
+
+        h1 {
+            font-size: 1.75rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #fff;
+        }
+
+        .tagline {
+            color: #888;
+            font-size: 1rem;
+        }
+
+        .section {
+            margin-bottom: 2.5rem;
+        }
+
+        .section-title {
+            font-size: 0.75rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .app-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .app-card {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: #141414;
+            border: 1px solid #222;
+            border-radius: 12px;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.2s ease;
+        }
+
+        .app-card:hover {
+            background: #1a1a1a;
+            border-color: #333;
+            transform: translateY(-1px);
+        }
+
+        .app-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 10px;
+            flex-shrink: 0;
+            background: #222;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .app-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .app-name {
+            font-weight: 500;
+            color: #fff;
+            margin-bottom: 0.125rem;
+        }
+
+        .app-desc {
+            font-size: 0.875rem;
+            color: #888;
+        }
+
+        .app-badge {
+            font-size: 0.625rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            background: #1a3a1a;
+            color: #4ade80;
+        }
+
+        .app-badge.coming {
+            background: #3a2a1a;
+            color: #fbbf24;
+        }
+
+        .arrow {
+            color: #444;
+            font-size: 1.25rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #888;
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: color 0.2s;
+        }
+
+        .social-link:hover {
+            color: #fff;
+        }
+
+        .social-icon {
+            width: 20px;
+            height: 20px;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid #1a1a1a;
+            color: #444;
+            font-size: 0.875rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <!-- Add your photo: replace with actual image URL -->
+            <img src="https://avatars.githubusercontent.com/u/manuelpa-ms" alt="Manuel" class="avatar" onerror="this.style.display='none'">
+            <h1>Manuel</h1>
+            <p class="tagline">Indie developer building apps that don't suck</p>
+        </header>
+
+        <section class="section">
+            <h2 class="section-title">Apps</h2>
+            <div class="app-grid">
+                <a href="https://healthien.app" class="app-card" target="_blank" rel="noopener">
+                    <div class="app-icon">🍎</div>
+                    <div class="app-info">
+                        <div class="app-name">Healthien</div>
+                        <div class="app-desc">AI calorie tracking — snap a photo, get nutrition</div>
+                    </div>
+                    <span class="app-badge">Live</span>
+                    <span class="arrow">→</span>
+                </a>
+
+                <a href="#" class="app-card" target="_blank" rel="noopener">
+                    <div class="app-icon">✨</div>
+                    <div class="app-info">
+                        <div class="app-name">Tiny Steps</div>
+                        <div class="app-desc">Habit tracker for ADHD brains — no guilt, just progress</div>
+                    </div>
+                    <span class="app-badge">Live</span>
+                    <span class="arrow">→</span>
+                </a>
+
+                <a href="#" class="app-card" target="_blank" rel="noopener">
+                    <div class="app-icon">👤</div>
+                    <div class="app-info">
+                        <div class="app-name">NameDrill</div>
+                        <div class="app-desc">Remember names with spaced repetition</div>
+                    </div>
+                    <span class="app-badge">Live</span>
+                    <span class="arrow">→</span>
+                </a>
+
+                <a href="https://padeltracker.xyz" class="app-card" target="_blank" rel="noopener">
+                    <div class="app-icon">🎾</div>
+                    <div class="app-info">
+                        <div class="app-name">PadelTracker</div>
+                        <div class="app-desc">Track your padel matches from your watch</div>
+                    </div>
+                    <span class="app-badge">Live</span>
+                    <span class="arrow">→</span>
+                </a>
+
+                <div class="app-card" style="cursor: default;">
+                    <div class="app-icon">🌙</div>
+                    <div class="app-info">
+                        <div class="app-name">Luneira</div>
+                        <div class="app-desc">Turn your dreams into AI-generated art</div>
+                    </div>
+                    <span class="app-badge coming">Soon</span>
+                </div>
+
+                <div class="app-card" style="cursor: default;">
+                    <div class="app-icon">🦊</div>
+                    <div class="app-info">
+                        <div class="app-name">FaunaDex</div>
+                        <div class="app-desc">Identify wildlife with your camera</div>
+                    </div>
+                    <span class="app-badge coming">Soon</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Connect</h2>
+            <div class="social-links">
+                <a href="https://twitter.com/miadevelops" class="social-link" target="_blank" rel="noopener">
+                    <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                    @miadevelops
+                </a>
+                <a href="https://github.com/manuelpa-ms" class="social-link" target="_blank" rel="noopener">
+                    <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    GitHub
+                </a>
+            </div>
+        </section>
+
+        <footer class="footer">
+            Building in public from Spain 🇪🇸
+        </footer>
+    </div>
+</body>
+</html>
