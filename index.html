@@ -67,6 +67,88 @@
             margin-bottom: 1rem;
         }
 
+        .project-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .project-card {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #222;
+            background: #141414;
+        }
+
+        .project-screenshot {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+            display: block;
+            opacity: 0.85;
+            transition: opacity 0.3s;
+        }
+
+        .project-card:hover .project-screenshot {
+            opacity: 1;
+        }
+
+        .project-overlay {
+            padding: 1rem 1.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .project-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .project-name {
+            font-weight: 600;
+            font-size: 1rem;
+            color: #fff;
+            margin-bottom: 0.125rem;
+        }
+
+        .project-desc {
+            font-size: 0.8125rem;
+            color: #888;
+        }
+
+        .project-tags {
+            display: flex;
+            gap: 0.375rem;
+            flex-shrink: 0;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+        .project-tag {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.3rem 0.6rem;
+            font-size: 0.6875rem;
+            font-weight: 500;
+            border-radius: 6px;
+            background: #1a1a2e;
+            color: #818cf8;
+            white-space: nowrap;
+        }
+
+        @media (max-width: 700px) {
+            .project-overlay {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .project-tags {
+                justify-content: flex-start;
+            }
+        }
+
         .app-grid {
             display: flex;
             flex-direction: column;
@@ -224,6 +306,45 @@
             <h1>Manuel</h1>
             <p class="tagline">Indie developer building apps that don't suck</p>
         </header>
+
+        <section class="section">
+            <h2 class="section-title">Web Projects</h2>
+            <div class="project-grid">
+
+                <!-- Brass Birmingham -->
+                <div class="project-card">
+                    <img src="icons/brass-birmingham.jpg" alt="Brass Birmingham — async online board game" class="project-screenshot" loading="lazy">
+                    <div class="project-overlay">
+                        <div class="project-info">
+                            <div class="project-name">Brass Birmingham Online</div>
+                            <div class="project-desc">Full async implementation of the #1 rated board game on BGG. Turn-based multiplayer with complete rule enforcement.</div>
+                        </div>
+                        <div class="project-tags">
+                            <span class="project-tag">Node.js</span>
+                            <span class="project-tag">boardgame.io</span>
+                            <span class="project-tag">Async Multiplayer</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Power Grid -->
+                <div class="project-card">
+                    <img src="icons/power-grid.png" alt="Power Grid — async online board game" class="project-screenshot" loading="lazy">
+                    <div class="project-overlay">
+                        <div class="project-info">
+                            <div class="project-name">Power Grid Online</div>
+                            <div class="project-desc">Async multiplayer Power Grid with 4 maps (USA, Germany, Italy, France). Auctions, resource markets, and network building.</div>
+                        </div>
+                        <div class="project-tags">
+                            <span class="project-tag">Node.js</span>
+                            <span class="project-tag">boardgame.io</span>
+                            <span class="project-tag">4 Maps</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
 
         <section class="section">
             <h2 class="section-title">Apps</h2>
