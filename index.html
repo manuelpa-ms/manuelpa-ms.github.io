@@ -50,6 +50,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid #bbb; outline-offset:
 .project-name { display: flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 600; margin: 0 0 5px; }
 .project-icon { width: 24px; height: 24px; border-radius: 4px; }
 .project-desc { font-size: 13px; color: #aaa; line-height: 1.5; margin: 0; }
+.project-note { font-size: 13px; color: #999; margin: 12px 0 0; }
 .app-grid { display: flex; flex-direction: column; }
 .app-card { display: flex; align-items: center; gap: 14px; padding: 16px 0; border-top: 1px solid #242424; }
 .app-card:first-child { border-top: 0; padding-top: 0; }
@@ -60,7 +61,8 @@ a:focus-visible, button:focus-visible { outline: 2px solid #bbb; outline-offset:
 .app-links { display: flex; gap: 12px; flex-shrink: 0; flex-wrap: wrap; }
 .app-link { display: inline-flex; align-items: center; gap: 4px; font-size: 12px; white-space: nowrap; }
 .app-link svg { width: 12px; height: 12px; }
-footer { display: flex; gap: 20px; padding-top: 20px; border-top: 1px solid #242424; font-size: 13px; }
+footer { display: flex; flex-wrap: wrap; gap: 20px; padding-top: 20px; border-top: 1px solid #242424; font-size: 13px; }
+.footer-note { color: #999; }
 .lightbox { width: 100vw; height: 100vh; max-width: none; max-height: none; border: 0; padding: 40px 16px 16px; background: #080808f5; }
 .lightbox[open] { display: flex; align-items: center; justify-content: center; }
 .lightbox::backdrop { background: #000c; }
@@ -79,7 +81,7 @@ footer { display: flex; gap: 20px; padding-top: 20px; border-top: 1px solid #242
 <main>
 <header>
     <img src="https://avatars.githubusercontent.com/manuelpa-ms?s=112" alt="" class="avatar" width="56" height="56">
-    <div><h1>Manuel</h1><p>Games &amp; apps</p></div>
+    <div><h1>Manuel</h1><p>I build games and mobile apps on my own, from a real-time strategy game to small iOS and Android tools.</p></div>
 </header>
 
 <section aria-labelledby="games-title">
@@ -111,6 +113,7 @@ footer { display: flex; gap: 20px; padding-top: 20px; border-top: 1px solid #242
             </div>
         </div>
     </div>
+    <p class="project-note">Both board game versions are private and not open to the public.</p>
 </section>
 
 <section aria-labelledby="apps-title">
@@ -201,7 +204,7 @@ footer { display: flex; gap: 20px; padding-top: 20px; border-top: 1px solid #242
 
 <footer>
     <a href="https://github.com/manuelpa-ms" target="_blank" rel="noopener">GitHub</a>
-    <a href="https://x.com/_manuelpa" target="_blank" rel="noopener">@_manuelpa</a>
+    <span><a href="https://x.com/_manuelpa" target="_blank" rel="noopener">@_manuelpa</a> <span class="footer-note">· DMs open</span></span>
 </footer>
 </main>
 <dialog class="lightbox" aria-label="Project screenshot">
