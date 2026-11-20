@@ -23,6 +23,10 @@ a:focus-visible, button:focus-visible { outline: 2px solid #bbb; outline-offset:
 .game-link h3 { font-size: 17px; margin: 0 0 4px; font-weight: 600; }
 .game-link p { font-size: 14px; color: #aaa; margin: 0 0 6px; }
 .game-link a { font-size: 13px; }
+.game-gallery { display: grid; grid-template-columns: minmax(0, 1.75fr) minmax(0, 1fr); gap: 12px; margin: 16px 0; align-items: center; }
+.game-gallery .screenshot-button { border: 1px solid #252525; border-radius: 6px; overflow: hidden; }
+.game-gallery .project-screenshot { width: 100%; height: auto; aspect-ratio: auto; object-fit: contain; }
+.game-gallery button.mobile-shot { grid-column: 2; grid-row: 1 / 3; }
 .project-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
 .project-card { overflow: hidden; border: 1px solid #252525; border-radius: 8px; background: #121212; }
 .screenshot-button { display: block; padding: 0; width: 100%; background: none; border: 0; cursor: zoom-in; }
@@ -48,7 +52,7 @@ footer { display: flex; gap: 20px; padding-top: 20px; border-top: 1px solid #242
 .lightbox img { max-width: 100%; max-height: calc(100vh - 60px); object-fit: contain; }
 .lightbox-close { position: absolute; right: 16px; top: 10px; background: #222; color: #fff; border: 1px solid #555; border-radius: 4px; padding: 6px 12px; cursor: pointer; }
 @media (max-width: 700px) { .app-card { flex-wrap: wrap; } .app-info { flex-basis: calc(100% - 70px); } .app-links { margin-left: 62px; max-width: calc(100% - 62px); gap: 8px 14px; } }
-@media (max-width: 600px) { main { padding: 28px 20px; } .project-grid { grid-template-columns: 1fr; } header { margin-bottom: 30px; } }
+@media (max-width: 600px) { main { padding: 28px 20px; } .project-grid { grid-template-columns: 1fr; } header { margin-bottom: 30px; } .game-gallery { grid-template-columns: minmax(0, 1fr); } .game-gallery button.mobile-shot { grid-column: 1; grid-row: auto; width: min(70%, 240px); justify-self: center; } }
 </style>
 </head>
 <body>
@@ -62,6 +66,11 @@ footer { display: flex; gap: 20px; padding-top: 20px; border-top: 1px solid #242
 <div class="game-link">
 <h3>Galactic Gambit</h3>
 <p>A real-time space strategy game for browser and mobile, with a shared galaxy and live seasons.</p>
+<div class="game-gallery" aria-label="Galactic Gambit screenshots">
+<img src="images/galactic-gambit/empire.webp" alt="Galactic Gambit - empire and fleet overview" class="project-screenshot" width="1600" height="1000">
+<img src="images/galactic-gambit/galaxy.webp" alt="Galactic Gambit - galaxy map and fleet routes" class="project-screenshot" width="1600" height="1000">
+<img src="images/galactic-gambit/mobile-galaxy.webp" alt="Galactic Gambit - galaxy map on mobile" class="project-screenshot mobile-shot" width="624" height="1350">
+</div>
 <a href="https://galacticgambit.app" target="_blank" rel="noopener">galacticgambit.app ↗</a>
 </div>
 <div class="project-grid">
@@ -235,7 +244,7 @@ const lightbox = document.querySelector('.lightbox');
 document.querySelectorAll('.project-screenshot').forEach(img => {
     const button = document.createElement('button');
     button.type = 'button';
-    button.className = 'screenshot-button';
+    button.className = 'screenshot-button' + (img.classList.contains('mobile-shot') ? ' mobile-shot' : '');
     button.setAttribute('aria-label', 'Enlarge ' + img.alt);
     img.before(button);
     button.append(img);
