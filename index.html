@@ -1,481 +1,98 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manuel | Full-stack engineer &amp; independent builder</title>
-    <meta name="description" content="Full-stack engineer focused on developer experience, reliable systems, and useful products. Creator of Galactic Gambit, FaunaDex, Tiny Steps, and PadelTracker.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: #0a0a0a;
-            color: #e5e5e5;
-            min-height: 100vh;
-            line-height: 1.6;
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 4rem 1.5rem;
-        }
-
-        .header {
-            display: flex;
-            align-items: center;
-            gap: 1.25rem;
-            margin-bottom: 2.5rem;
-        }
-
-        .avatar {
-            width: 72px;
-            height: 72px;
-            border-radius: 50%;
-            border: 2px solid #333;
-            flex-shrink: 0;
-        }
-
-        .header-text {
-            min-width: 0;
-        }
-
-        h1 {
-            font-size: 1.75rem;
-            font-weight: 600;
-            margin-bottom: 0.125rem;
-            color: #fff;
-        }
-
-        .tagline {
-            color: #888;
-            font-size: 1rem;
-        }
-
-        .section {
-            margin-bottom: 2.5rem;
-        }
-
-        .section-title {
-            font-size: 0.75rem;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: #666;
-            margin-bottom: 1rem;
-        }
-
-        .project-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-        }
-
-        @media (max-width: 600px) {
-            .project-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .project-card {
-            position: relative;
-            border-radius: 12px;
-            overflow: hidden;
-            border: 1px solid #222;
-            background: #141414;
-        }
-
-        .project-screenshot {
-            width: 100%;
-            aspect-ratio: 16 / 10;
-            object-fit: cover;
-            display: block;
-            opacity: 0.85;
-            transition: opacity 0.3s;
-        }
-
-        .project-card:hover .project-screenshot {
-            opacity: 1;
-        }
-
-        .project-overlay {
-            padding: 0.75rem 1rem;
-        }
-
-        .project-info {
-            min-width: 0;
-        }
-
-        .project-name {
-            font-weight: 600;
-            font-size: 0.9375rem;
-            color: #fff;
-            margin-bottom: 0.125rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .project-icon {
-            width: 28px;
-            height: 28px;
-            border-radius: 6px;
-            flex-shrink: 0;
-        }
-
-        .project-desc {
-            font-size: 0.75rem;
-            color: #888;
-            line-height: 1.4;
-        }
-
-        .project-tags {
-            display: flex;
-            gap: 0.375rem;
-            flex-wrap: wrap;
-            margin-top: 0.5rem;
-        }
-
-        .project-tag {
-            display: inline-flex;
-            align-items: center;
-            padding: 0.3rem 0.6rem;
-            font-size: 0.6875rem;
-            font-weight: 500;
-            border-radius: 6px;
-            background: #1a1a2e;
-            color: #818cf8;
-            white-space: nowrap;
-        }
-
-        @media (max-width: 700px) {
-            .project-overlay {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            .project-tags {
-                justify-content: flex-start;
-            }
-        }
-
-        .app-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
-        }
-
-        .app-card {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding: 1rem 1.25rem;
-            background: #141414;
-            border: 1px solid #222;
-            border-radius: 12px;
-        }
-
-        .app-icon {
-            width: 52px;
-            height: 52px;
-            border-radius: 12px;
-            flex-shrink: 0;
-            background: #222;
-        }
-
-        .app-info {
-            flex: 1;
-            min-width: 0;
-        }
-
-        .app-name {
-            font-weight: 600;
-            font-size: 1rem;
-            color: #fff;
-            margin-bottom: 0.125rem;
-        }
-
-        .app-desc {
-            font-size: 0.8125rem;
-            color: #888;
-        }
-
-        .app-links {
-            display: flex;
-            gap: 0.5rem;
-            flex-shrink: 0;
-        }
-
-        .app-link {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.375rem;
-            padding: 0.5rem 0.75rem;
-            font-size: 0.75rem;
-            font-weight: 500;
-            text-decoration: none;
-            border-radius: 6px;
-            transition: all 0.2s;
-            white-space: nowrap;
-        }
-
-        .app-link.website {
-            background: #1a1a2e;
-            color: #818cf8;
-        }
-
-        .app-link.website:hover {
-            background: #1e1e3f;
-        }
-
-        .app-link.appstore {
-            background: #1a1a1a;
-            color: #fff;
-        }
-
-        .app-link.appstore:hover {
-            background: #252525;
-        }
-
-        .app-link.playstore {
-            background: #1a2e1a;
-            color: #4ade80;
-        }
-
-        .app-link.playstore:hover {
-            background: #1e3f1e;
-        }
-
-        .app-link svg {
-            width: 14px;
-            height: 14px;
-        }
-
-        .app-link span {
-            display: inline;
-        }
-
-        @media (max-width: 700px) {
-            .app-card {
-                flex-wrap: wrap;
-            }
-            .app-links {
-                width: 100%;
-                margin-top: 0.75rem;
-                padding-left: 68px;
-            }
-            .app-link span {
-                display: none;
-            }
-            .app-link {
-                padding: 0.5rem;
-            }
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-        }
-
-        .social-link {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: #888;
-            text-decoration: none;
-            font-size: 0.875rem;
-            transition: color 0.2s;
-        }
-
-        .social-link:hover {
-            color: #fff;
-        }
-
-        .social-icon {
-            width: 20px;
-            height: 20px;
-        }
-
-        .lightbox {
-            display: none;
-            position: fixed;
-            inset: 0;
-            z-index: 1000;
-            background: rgba(0, 0, 0, 0.9);
-            cursor: zoom-out;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .lightbox.active {
-            display: flex;
-        }
-
-        .lightbox img {
-            max-width: 95vw;
-            max-height: 95vh;
-            object-fit: contain;
-            border-radius: 8px;
-        }
-
-        .project-screenshot {
-            cursor: zoom-in;
-        }
-
-        .footer {
-            text-align: center;
-            margin-top: 4rem;
-            padding-top: 2rem;
-            border-top: 1px solid #1a1a1a;
-            color: #444;
-            font-size: 0.875rem;
-        }
-
-        :root { color-scheme: dark; }
-        html { scroll-behavior: smooth; }
-        body { color: #c2c2cc; }
-        .container { max-width: 1040px; padding-top: 3rem; }
-        a { color: #a7adff; }
-        a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px solid #a7adff; outline-offset: 5px; }
-        .skip-link { position: absolute; top: -60px; left: 1rem; padding: .6rem 1rem; background: #222; z-index: 20; }
-        .skip-link:focus { top: 1rem; }
-        .header { margin-bottom: 2rem; }
-        .tagline { color: #a1a1ad; font-size: .9rem; }
-        .intro { max-width: 790px; margin-bottom: 3rem; }
-        .intro h2 { font-size: clamp(2rem, 5vw, 3.25rem); color: #f5f5fa; line-height: 1.14; letter-spacing: -.045em; font-weight: 600; }
-        .intro p { font-size: 1rem; max-width: 720px; margin-top: 1rem; }
-        .intro-nav { display: flex; flex-wrap: wrap; gap: 1.25rem; margin-top: 1.25rem; font-size: .875rem; }
-        .intro-nav a { text-decoration: none; }
-        .section { margin-bottom: 3rem; }
-        .section-title { color: #a1a1ad; }
-        .featured { border: 1px solid #33334c; border-radius: 16px; background: linear-gradient(140deg, #171725, #111115 70%); overflow: hidden; }
-        .featured-top { display: grid; grid-template-columns: 1.35fr 1fr; gap: 2rem; padding: 2rem; border-bottom: 1px solid #292932; }
-        .eyebrow { font-size: .6875rem; font-weight: 600; text-transform: uppercase; letter-spacing: .12em; color: #aaaefa; }
-        .featured h3 { font-size: clamp(1.7rem, 4vw, 2.2rem); color: #fff; letter-spacing: -.035em; margin: .4rem 0 .6rem; line-height: 1.2; }
-        .featured-lede { font-size: .9375rem; line-height: 1.6; }
-        .featured .project-tags { margin-top: 1rem; }
-        .primary-link { display: inline-flex; text-decoration: none; padding: .65rem 1rem; background: #aaaefa; color: #10101b; border-radius: 8px; font-size: .8125rem; font-weight: 600; margin-top: 1.25rem; }
-        .primary-link:hover { background: #c1c4ff; }
-        .architecture { display: flex; flex-direction: column; justify-content: center; gap: .55rem; font-size: .75rem; }
-        .architecture div { border: 1px solid #343443; border-radius: 8px; padding: .75rem .9rem; background: #17171f; }
-        .architecture strong { color: #e7e7f2; font-weight: 500; display: block; }
-        .architecture span { color: #b1b1c1; display: block; margin-top: .15rem; }
-        .architecture .rules { border-color: #555579; background: #202034; }
-        .engineering-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem 2rem; padding: 1.75rem 2rem 2rem; }
-        .engineering-grid h4 { font-size: .875rem; color: #ededf6; font-weight: 600; margin-bottom: .35rem; }
-        .engineering-grid p { font-size: .8125rem; color: #b2b2c0; line-height: 1.65; }
-        .public-work { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-        .public-work article { border: 1px solid #2e2e3b; border-radius: 12px; padding: 1.4rem; background: #131318; }
-        .public-work h3 { font-size: 1rem; font-weight: 600; color: #eee; margin-bottom: .6rem; }
-        .public-work p, .public-work ul { font-size: .8125rem; line-height: 1.7; color: #b2b2c0; }
-        .public-work ul { padding-left: 1.1rem; margin-top: .6rem; }
-        .public-work li + li { margin-top: .6rem; }
-        .public-work .code-link { display: inline-block; margin-top: .9rem; font-size: .8125rem; text-decoration: none; }
-        .approach { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.5rem; }
-        .approach h3 { font-size: .875rem; color: #eee; margin-bottom: .4rem; font-weight: 500; }
-        .approach p { font-size: .8125rem; }
-        .app-desc { color: #b0b0bb; font-size: .8125rem; line-height: 1.55; }
-        .project-desc { color: #b0b0bb; }
-        .app-card { padding: 1.25rem; }
-        .app-link { min-height: 40px; }
-        .app-link.website { color: #a7adff; }
-        .section-note { margin: -.5rem 0 1rem; color: #aaaab6; font-size: .8125rem; }
-        details { border-top: 1px solid #282830; padding-top: 1.25rem; }
-        summary { cursor: pointer; color: #b8b8c5; font-size: .875rem; padding: .25rem 0; }
-        .more-work { margin-top: 1.25rem; }
-        .more-work h3 { color: #b8b8c5; font-size: .75rem; font-weight: 500; margin: 1.5rem 0 1rem; }
-        .more-work .app-grid { margin-top: 1rem; }
-        .footer { margin-top: 2.5rem; color: #888894; font-size: .75rem; }
-        .social-link { color: #a1a1ad; }
-        .screenshot-button { display: block; width: 100%; padding: 0; border: 0; background: none; cursor: zoom-in; }
-        .lightbox { border: 0; width: 100vw; height: 100vh; max-width: none; max-height: none; padding: 2.5rem 1rem 1rem; color: #fff; }
-        .lightbox[open] { display: flex; }
-        .lightbox::backdrop { background: #000c; }
-        .lightbox-close { position: absolute; top: .7rem; right: 1rem; border: 1px solid #555; border-radius: 6px; background: #222; color: #fff; padding: .5rem .75rem; cursor: pointer; }
-        @media (max-width: 700px) {
-            .container { padding: 2rem 1.25rem; }
-            .featured-top { grid-template-columns: 1fr; padding: 1.4rem; gap: 1.5rem; }
-            .engineering-grid { grid-template-columns: 1fr; padding: 1.4rem; }
-            .approach { grid-template-columns: 1fr; gap: 1.2rem; }
-            .public-work { grid-template-columns: 1fr; }
-            .app-card { gap: .85rem; }
-            .app-info { flex-basis: calc(100% - 70px); }
-            .app-links { gap: .5rem; margin-top: .25rem; padding-left: 0; flex-wrap: wrap; }
-            .app-link span { display: inline; }
-            .app-link { padding: .5rem .65rem; }
-            .header { gap: 1rem; }
-            .avatar { width: 58px; height: 58px; }
-        }
-        @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
-    </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Manuel - Projects</title>
+<meta name="description" content="Games and apps by Manuel: Galactic Gambit, Brass Birmingham Online, Power Grid Online, FaunaDex, Tiny Steps and PadelTracker.">
+<style>
+:root { color-scheme: dark; }
+* { box-sizing: border-box; }
+body { margin: 0; background: #0a0a0a; color: #e5e5e5; font: 15px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+main { max-width: 900px; margin: auto; padding: 52px 24px 32px; }
+header { display: flex; align-items: center; gap: 16px; margin-bottom: 40px; }
+.avatar { width: 56px; height: 56px; border-radius: 50%; }
+h1 { margin: 0; font-size: 24px; font-weight: 600; }
+header p { color: #999; margin: 2px 0 0; font-size: 14px; }
+h2 { font-size: 13px; font-weight: 500; color: #aaa; margin: 0 0 16px; }
+section { margin-bottom: 36px; }
+a { color: #bbb; text-underline-offset: 3px; }
+a:hover { color: #fff; }
+a:focus-visible, button:focus-visible { outline: 2px solid #bbb; outline-offset: 4px; }
+.game-link { margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #242424; }
+.game-link h3 { font-size: 17px; margin: 0 0 4px; font-weight: 600; }
+.game-link p { font-size: 14px; color: #aaa; margin: 0 0 6px; }
+.game-link a { font-size: 13px; }
+.project-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.project-card { overflow: hidden; border: 1px solid #252525; border-radius: 8px; background: #121212; }
+.screenshot-button { display: block; padding: 0; width: 100%; background: none; border: 0; cursor: zoom-in; }
+.project-screenshot { width: 100%; aspect-ratio: 16/10; object-fit: cover; display: block; }
+.project-overlay { padding: 12px 14px 14px; }
+.project-name { display: flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 600; margin-bottom: 5px; }
+.project-icon { width: 24px; height: 24px; border-radius: 4px; }
+.project-desc { font-size: 13px; color: #aaa; line-height: 1.5; }
+.app-grid { display: flex; flex-direction: column; }
+.app-card { display: flex; align-items: center; gap: 14px; padding: 16px 0; border-top: 1px solid #242424; }
+.app-card:first-child { border-top: 0; padding-top: 0; }
+.app-icon { width: 48px; height: 48px; border-radius: 10px; flex-shrink: 0; }
+.app-info { flex: 1; min-width: 0; }
+.app-name { font-size: 15px; font-weight: 600; }
+.app-desc { color: #aaa; font-size: 13px; }
+.app-links { display: flex; gap: 12px; flex-shrink: 0; flex-wrap: wrap; }
+.app-link { display: inline-flex; align-items: center; gap: 4px; font-size: 12px; white-space: nowrap; }
+.app-link svg { width: 12px; height: 12px; }
+footer { display: flex; gap: 20px; padding-top: 20px; border-top: 1px solid #242424; font-size: 13px; }
+.lightbox { width: 100vw; height: 100vh; max-width: none; max-height: none; border: 0; padding: 40px 16px 16px; background: #080808f5; }
+.lightbox[open] { display: flex; align-items: center; justify-content: center; }
+.lightbox::backdrop { background: #000c; }
+.lightbox img { max-width: 100%; max-height: calc(100vh - 60px); object-fit: contain; }
+.lightbox-close { position: absolute; right: 16px; top: 10px; background: #222; color: #fff; border: 1px solid #555; border-radius: 4px; padding: 6px 12px; cursor: pointer; }
+@media (max-width: 700px) { .app-card { flex-wrap: wrap; } .app-info { flex-basis: calc(100% - 70px); } .app-links { margin-left: 62px; max-width: calc(100% - 62px); gap: 8px 14px; } }
+@media (max-width: 600px) { main { padding: 28px 20px; } .project-grid { grid-template-columns: 1fr; } header { margin-bottom: 30px; } }
+</style>
 </head>
 <body>
-    <a class="skip-link" href="#work">Skip to selected work</a>
-    <div class="container">
-        <header class="header">
-            <img src="https://avatars.githubusercontent.com/manuelpa-ms" alt="" class="avatar" width="72" height="72">
-            <div class="header-text">
-                <h1>Manuel Pardo Gallego</h1>
-                <p class="tagline">Full-stack engineer &amp; independent builder · Spain</p>
-            </div>
-        </header>
-        <main>
-            <section class="intro" aria-labelledby="intro-title">
-                <h2 id="intro-title">Full-stack products.<br>Developer-first tools.</h2>
-                <p>I build and run software end to end, from shared domain rules and APIs to the tools that make releases repeatable. My background in developer support at Microsoft shapes how I approach debugging, integrations, and developer experience.</p>
-                <nav class="intro-nav" aria-label="Portfolio sections">
-                    <a href="#work">Selected work ↓</a>
-                    <a href="#public-work">Public code &amp; docs ↓</a>
-                    <a href="#approach">How I build ↓</a>
-                    <a href="https://github.com/manuelpa-ms" target="_blank" rel="noopener">GitHub ↗</a>
-                </nav>
-            </section>
-            <section class="section" id="work" aria-labelledby="work-title">
-                <h2 class="section-title" id="work-title">Selected work / full-stack systems</h2>
-                <article class="featured" aria-labelledby="galactic-title">
-                    <div class="featured-top">
-                        <div>
-                            <p class="eyebrow">Flagship project · Designed, built &amp; operated solo</p>
-                            <h3 id="galactic-title">Galactic Gambit</h3>
-                            <p class="featured-lede">A real-time, mobile-first space-strategy MMO. A persistent shared galaxy, fleets, alliances, and seasonal competition, taken from alpha to public beta with real players and live seasons.</p>
-                            <div class="project-tags" aria-label="Technology stack">
-                                <span class="project-tag">TypeScript monorepo</span><span class="project-tag">React 19</span><span class="project-tag">Fastify</span><span class="project-tag">WebSocket</span><span class="project-tag">SQLite</span>
-                            </div>
-                            <a class="primary-link" href="https://galacticgambit.app" target="_blank" rel="noopener">Explore Galactic Gambit ↗</a>
-                        </div>
-                        <div class="architecture" aria-label="Architecture overview">
-                            <div><strong>React 19 client</strong><span>Mobile-first interface and rule previews</span></div>
-                            <div class="rules"><strong>Shared deterministic rules</strong><span>Economy · travel · combat · galaxy generation</span></div>
-                            <div><strong>Fastify + WebSocket + SQLite</strong><span>Server decisions, typed zod protocol, timer/event engine</span></div>
+<main>
+<header>
+<img src="https://avatars.githubusercontent.com/manuelpa-ms" alt="" class="avatar" width="56" height="56">
+<div><h1>Manuel</h1><p>Games &amp; apps</p></div>
+</header>
+<section aria-labelledby="games-title">
+<h2 id="games-title">Games</h2>
+<div class="game-link">
+<h3>Galactic Gambit</h3>
+<p>A real-time space strategy game for browser and mobile, with a shared galaxy and live seasons.</p>
+<a href="https://galacticgambit.app" target="_blank" rel="noopener">galacticgambit.app ↗</a>
+</div>
+<div class="project-grid">
+<div class="project-card">
+                    <img src="icons/brass-birmingham.png" alt="Brass Birmingham - async online board game" class="project-screenshot">
+                    <div class="project-overlay">
+                        <div class="project-info">
+                            <div class="project-name"><img src="icons/brass-icon.jpg" alt="" class="project-icon">Brass Birmingham Online</div>
+                            <div class="project-desc">Online Brass Birmingham with turn-based multiplayer.</div>
                         </div>
                     </div>
-                    <div class="engineering-grid">
-                        <div><h4>One ruleset, both sides</h4><p>Pure deterministic domain logic is shared between server and client, keeping player previews aligned with authoritative server decisions.</p></div>
-                        <div><h4>Simulation as a development tool</h4><p>CLIs simulate bot empires through a full season. HTML balance reports compare progression, combat, and onboarding against saved baselines, alongside feedback from live play.</p></div>
-                        <div><h4>Tests beyond the happy path</h4><p>Approximately 300 test files span unit, fast-check property-based, integration, and balance testing, plus Playwright end-to-end checks against the release build.</p></div>
-                        <div><h4>Built to operate and iterate</h4><p>Azure Bicep/cloud-init provisioning, Caddy, Litestream replication to Azure Blob, scripted deploys and restores, and a load harness. Email, Google, and Discord sign-in, an optional Supporter subscription, and a player guide round out the product.</p></div>
+                </div>
+<div class="project-card">
+                    <img src="icons/power-grid.jpg" alt="Power Grid - async online board game" class="project-screenshot">
+                    <div class="project-overlay">
+                        <div class="project-info">
+                            <div class="project-name"><img src="icons/powergrid-icon.png" alt="" class="project-icon">Power Grid Online</div>
+                            <div class="project-desc">Online Power Grid with four maps and turn-based multiplayer.</div>
+                        </div>
                     </div>
-                </article>
-            </section>
-            <section class="section" aria-labelledby="apps-title">
-                <h2 class="section-title" id="apps-title">Selected work / mobile products</h2>
-                <p class="section-note">Small, focused apps for the things people do every day.</p>
-                <div class="app-grid">
-                <div class="app-card">
+                </div>
+</div>
+</section>
+<section aria-labelledby="apps-title">
+<h2 id="apps-title">Apps</h2>
+<div class="app-grid">
+<div class="app-card">
                     <img src="icons/faunadex.png" alt="FaunaDex" class="app-icon">
                     <div class="app-info">
                         <div class="app-name">FaunaDex</div>
-                        <div class="app-desc">AI-powered wildlife identification. Discover the animals around you on iOS and Android.</div>
+                        <div class="app-desc">Identify wildlife with your camera.</div>
                     </div>
                     <div class="app-links">
                         <a href="https://onelink.to/mnhhcc" class="app-link website" target="_blank" rel="noopener" aria-label="FaunaDex website or app link">
@@ -492,12 +109,11 @@
                         </a>
                     </div>
                 </div>
-
-                <div class="app-card">
+<div class="app-card">
                     <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/06/d5/0e/06d50e3f-a73d-f64c-4806-9fc74a785cc7/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/128x128bb.jpg" alt="Tiny Steps" class="app-icon">
                     <div class="app-info">
                         <div class="app-name">Tiny Steps</div>
-                        <div class="app-desc">ADHD-friendly task planning. Break overwhelming tasks into small, manageable steps and get started.</div>
+                        <div class="app-desc">Break tasks into small, manageable steps.</div>
                     </div>
                     <div class="app-links">
                         <a href="https://tinysteps-6hy.pages.dev" class="app-link website" target="_blank" rel="noopener" aria-label="Tiny Steps website or app link">
@@ -514,12 +130,11 @@
                         </a>
                     </div>
                 </div>
-
-                <div class="app-card">
+<div class="app-card">
                     <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/60/cf/f7/60cff7fd-cc29-1e2d-5a3a-82b84e9fe03c/appicon-0-0-1x_U007emarketing-0-8-0-85-220.png/128x128bb.jpg" alt="PadelTracker" class="app-icon">
                     <div class="app-info">
                         <div class="app-name">PadelTracker</div>
-                        <div class="app-desc">Track padel matches and stats from your watch. Built for the court, not another screen.</div>
+                        <div class="app-desc">Track padel scores and match stats from your watch.</div>
                     </div>
                     <div class="app-links">
                         <a href="https://padeltracker.xyz" class="app-link website" target="_blank" rel="noopener" aria-label="PadelTracker website or app link">
@@ -536,83 +151,11 @@
                         </a>
                     </div>
                 </div>
-                </div>
-            </section>
-            <section class="section" id="public-work" aria-labelledby="public-title">
-                <h2 class="section-title" id="public-title">Public code &amp; developer documentation</h2>
-                <div class="public-work">
-                    <article aria-labelledby="adapter-title">
-                        <h3 id="adapter-title">bgio-sqlite</h3>
-                        <p>A public TypeScript storage adapter implementing boardgame.io's persistence interface. Typed options, SQLite WAL, transactional state/log writes, and stale-state checks, with tests and integration/API documentation.</p>
-                        <a class="code-link" href="https://github.com/manuelpa-ms/bgio-sqlite" target="_blank" rel="noopener">Read the source &amp; integration guide ↗</a>
-                    </article>
-                    <article aria-labelledby="docs-title">
-                        <h3 id="docs-title">Small fixes, clearer developer guidance</h3>
-                        <p>Two merged contributions to Microsoft's public developer documentation, informed by the details that matter when an integration behaves unexpectedly.</p>
-                        <ul>
-                            <li><a href="https://github.com/MicrosoftDocs/sdk-api/pull/1788" target="_blank" rel="noopener">Clarifying Windows 10/11 notification API behavior ↗</a></li>
-                            <li><a href="https://github.com/MicrosoftDocs/win32/pull/143" target="_blank" rel="noopener">Correcting Windows version-detection guidance ↗</a></li>
-                        </ul>
-                    </article>
-                </div>
-            </section>
-            <section class="section" id="approach" aria-labelledby="approach-title">
-                <h2 class="section-title" id="approach-title">How I build</h2>
-                <div class="approach">
-                    <div><h3>Developer empathy</h3><p>Developer support has taught me to reproduce the issue, understand the integration, and explain the fix clearly.</p></div>
-                    <div><h3>Fast feedback, explicit contracts</h3><p>Shared types, protocol validation, simulation tools, and release checks make complex systems easier to reason about.</p></div>
-                    <div><h3>Ownership after launch</h3><p>Product decisions continue in production: listening to players, tuning live seasons, and improving the path from change to release.</p></div>
-                </div>
-            </section>
-            <section class="section" aria-label="More projects">
-                <details>
-                    <summary>More apps &amp; multiplayer experiments</summary>
-                    <div class="more-work">
-                        <h3>Board-game implementations</h3>
-
-            <div class="project-grid">
-
-                <!-- Brass Birmingham -->
-                <div class="project-card">
-                    <img src="icons/brass-birmingham.png" alt="Brass Birmingham - async online board game" class="project-screenshot" loading="lazy">
-                    <div class="project-overlay">
-                        <div class="project-info">
-                            <div class="project-name"><img src="icons/brass-icon.jpg" alt="" class="project-icon">Brass Birmingham Online</div>
-                            <div class="project-desc">Async implementation of the strategy board game. Turn-based multiplayer with complete rule enforcement.</div>
-                        </div>
-                        <div class="project-tags">
-                            <span class="project-tag">Node.js</span>
-                            <span class="project-tag">boardgame.io</span>
-                            <span class="project-tag">Async Multiplayer</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Power Grid -->
-                <div class="project-card">
-                    <img src="icons/power-grid.jpg" alt="Power Grid - async online board game" class="project-screenshot" loading="lazy">
-                    <div class="project-overlay">
-                        <div class="project-info">
-                            <div class="project-name"><img src="icons/powergrid-icon.png" alt="" class="project-icon">Power Grid Online</div>
-                            <div class="project-desc">Async multiplayer Power Grid with 4 maps (USA, Germany, Italy, France). Auctions, resource markets, and network building.</div>
-                        </div>
-                        <div class="project-tags">
-                            <span class="project-tag">Node.js</span>
-                            <span class="project-tag">boardgame.io</span>
-                            <span class="project-tag">4 Maps</span>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-                        <h3>More mobile apps</h3>
-                        <div class="app-grid">
-                <div class="app-card">
+<div class="app-card">
                     <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/33/0b/8d/330b8d03-3a26-5379-a6bb-f3da8a247455/AppIcon-0-0-1x_U007emarketing-0-8-0-0-85-220.png/128x128bb.jpg" alt="Shwazi" class="app-icon">
                     <div class="app-info">
                         <div class="app-name">Shwazi</div>
-                        <div class="app-desc">Finger chooser — settle decisions the fun way</div>
+                        <div class="app-desc">Finger chooser for group decisions.</div>
                     </div>
                     <div class="app-links">
                         <a href="https://apps.apple.com/us/app/shwazi-finger-chooser/id6748817272" class="app-link appstore" target="_blank" rel="noopener" aria-label="Shwazi on the App Store">
@@ -625,8 +168,7 @@
                         </a>
                     </div>
                 </div>
-
-                <div class="app-card">
+<div class="app-card">
                     <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/b7/a5/41/b7a54152-6736-3bc6-44d2-7e90720dc2da/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/128x128bb.jpg" alt="NameDrill" class="app-icon">
                     <div class="app-info">
                         <div class="app-name">NameDrill</div>
@@ -643,8 +185,7 @@
                         </a>
                     </div>
                 </div>
-
-                <div class="app-card">
+<div class="app-card">
                     <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/d0/ad/21/d0ad21e1-89d3-f078-5167-38bf5c5ca846/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/128x128bb.jpg" alt="Prayerful" class="app-icon">
                     <div class="app-info">
                         <div class="app-name">Prayerful</div>
@@ -661,12 +202,11 @@
                         </a>
                     </div>
                 </div>
-
-                <div class="app-card">
+<div class="app-card">
                     <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/f1/b7/20/f1b720a2-a77d-6701-f64a-f37a8f0e492d/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/128x128bb.jpg" alt="Luneira" class="app-icon">
                     <div class="app-info">
                         <div class="app-name">Luneira</div>
-                        <div class="app-desc">Dream interpreter — decode your dreams with AI-generated art</div>
+                        <div class="app-desc">Dream interpretation with AI-generated images.</div>
                     </div>
                     <div class="app-links">
                         <a href="https://apps.apple.com/app/luneira-dream-interpreter/id6759152616" class="app-link appstore" target="_blank" rel="noopener" aria-label="Luneira on the App Store">
@@ -679,49 +219,35 @@
                         </a>
                     </div>
                 </div>
-                        </div>
-                    </div>
-                </details>
-            </section>
-        <section class="section">
-            <h2 class="section-title">Connect</h2>
-            <div class="social-links">
-                <a href="https://www.linkedin.com/in/manuelpa-ms/" class="social-link" target="_blank" rel="noopener">LinkedIn</a>
-                <a href="https://x.com/_manuelpa" class="social-link" target="_blank" rel="noopener">
-                    <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-                    @_manuelpa
-                </a>
-                <a href="https://github.com/manuelpa-ms" class="social-link" target="_blank" rel="noopener">
-                    <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                    GitHub
-                </a>
-            </div>
-        </section>
-        </main>
-        <footer class="footer">Designed, built, and iterated from Spain.</footer>
-    </div>
-    <dialog class="lightbox" id="lightbox" aria-label="Project screenshot">
-        <button class="lightbox-close" type="button">Close</button>
-        <img id="lightbox-img" alt="">
-    </dialog>
-    <script>
-        const lightbox = document.getElementById('lightbox');
-        document.querySelectorAll('.project-screenshot').forEach(img => {
-            const button = document.createElement('button');
-            button.type = 'button';
-            button.className = 'screenshot-button';
-            button.setAttribute('aria-label', 'Enlarge ' + img.alt);
-            img.before(button);
-            button.append(img);
-            button.addEventListener('click', () => {
-                const enlarged = document.getElementById('lightbox-img');
-                enlarged.src = img.src;
-                enlarged.alt = img.alt;
-                lightbox.showModal();
-            });
-        });
-        lightbox.querySelector('button').addEventListener('click', () => lightbox.close());
-        lightbox.addEventListener('click', event => { if (event.target === lightbox) lightbox.close(); });
-    </script>
+</div>
+</section>
+<footer>
+<a href="https://github.com/manuelpa-ms" target="_blank" rel="noopener">GitHub</a>
+<a href="https://x.com/_manuelpa" target="_blank" rel="noopener">@_manuelpa</a>
+</footer>
+</main>
+<dialog class="lightbox" aria-label="Project screenshot">
+<button class="lightbox-close" type="button">Close</button>
+<img alt="">
+</dialog>
+<script>
+const lightbox = document.querySelector('.lightbox');
+document.querySelectorAll('.project-screenshot').forEach(img => {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'screenshot-button';
+    button.setAttribute('aria-label', 'Enlarge ' + img.alt);
+    img.before(button);
+    button.append(img);
+    button.addEventListener('click', () => {
+        const enlarged = lightbox.querySelector('img');
+        enlarged.src = img.src;
+        enlarged.alt = img.alt;
+        lightbox.showModal();
+    });
+});
+lightbox.querySelector('button').addEventListener('click', () => lightbox.close());
+lightbox.addEventListener('click', event => { if (event.target === lightbox) lightbox.close(); });
+</script>
 </body>
 </html>
